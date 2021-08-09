@@ -14,12 +14,30 @@ function Navbar() {
     setClick(false);
   };
 
+  const onMouseEnter = () => {
+    //so for mobile devices etxc...
+    if (window.innerWidth < 960) {
+      setDropdown(false);
+    } else {
+      setDropdown(true);
+    }
+  };
+
+  const onMouseLeave = () => {
+    //so for mobile devices etxc...
+    if (window.innerWidth < 960) {
+      setDropdown(false);
+    } else {
+      setDropdown(false);
+    }
+  };
+
   return (
     <>
       <nav className="navbar">
         {/* kindof similar to a and href... */}
         <Link to="/" className="navbar-logo">
-          ABHI
+          EPIC <i class="fab fa-firstdraft" />
         </Link>
         <div className="menu-icon" onClick={handleClick}>
           <i className={click ? "fas fa-times" : "fas-fa-bars"} />
@@ -30,7 +48,11 @@ function Navbar() {
               Home
             </Link>
           </li>
-          <li className="nav-item">
+          <li
+            className="nav-item"
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
+          >
             <Link
               to="/services"
               className="nav-links"
@@ -40,6 +62,15 @@ function Navbar() {
             </Link>
             {/* if dropdown is true showcase dropdown component  */}
             {dropdown && <Dropdown />}
+          </li>
+          <li className="nav-item">
+            <Link
+              to="/products"
+              className="nav-links"
+              onClick={closeMobileMenu}
+            >
+              Products
+            </Link>
           </li>
           <li className="nav-item">
             <Link
