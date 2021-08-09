@@ -37,7 +37,7 @@ function Navbar() {
       <nav className="navbar">
         {/* kindof similar to a and href... */}
         <Link to="/" className="navbar-logo">
-          EPIC <i class="fab fa-firstdraft" />
+          ABHI <i class="fab fa-firstdraft" />
         </Link>
         <div className="menu-icon" onClick={handleClick}>
           <i className={click ? "fas fa-times" : "fas-fa-bars"} />
